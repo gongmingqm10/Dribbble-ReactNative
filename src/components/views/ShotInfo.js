@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import Theme, {Colors} from '../../Utils/Theme';
+import {Colors} from '../../Utils/Theme';
 
 const ShotInfo = ({shot}) => (
   <View style={styles.container}>

@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
   username: {
     marginLeft: 3,
     fontSize: 12,
-    color: Colors.darkPrimary
+    color: Colors.darkPrimary,
+    fontWeight: "600"
   }
 });
 

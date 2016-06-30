@@ -10,7 +10,6 @@ import {
 
 import API from '../Utils/API';
 import Constants from '../Utils/Constants';
-import Theme, {Colors} from '../Utils/Theme';
 import ShotRow from './views/ShotRow';
 
 class ShotsComponent extends Component {
@@ -88,11 +87,9 @@ class ShotsComponent extends Component {
   }
 }
 
-const pageColor = Colors.pageColor;
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   shotList: {
     flexDirection: 'row',
