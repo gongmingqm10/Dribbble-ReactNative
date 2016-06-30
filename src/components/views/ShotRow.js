@@ -8,7 +8,6 @@ import UserInfo from './UserInfo';
 import ShotInfo from './ShotInfo';
 
 const ShotRow = ({shot}) => {
-  
   return (
     <View style={styles.shotContainer}>
       <ShotInfo shot={shot}/>

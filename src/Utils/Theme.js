@@ -19,6 +19,9 @@ module.exports = {
     labelShots: 'Shots',
     labelDesigners: 'Designers',
     labelTeams: 'Teams',
-    labelMy: 'My'
+    labelMy: 'My',
+
+    messageLoading: 'Loading...',
+    messageDataLoaded: 'All data loaded'
   }
 };
