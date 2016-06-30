@@ -6,7 +6,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-import {Colors} from '../../Utils/Theme';
+import {Colors} from '../../utils/Theme';
 
 const UserInfo = ({user}) => (
   <View style={styles.userContainer}>

@@ -9,6 +9,8 @@
     "react": "^15.1.0",
     "react-native": "0.27.2",
     "react-native-router-flux": "^3.30.2",
-    "react-native-vector-icons": "^2.0.3"
+    "react-native-vector-icons": "^2.0.3",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
   }
 }

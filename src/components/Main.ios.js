@@ -3,8 +3,7 @@ import {
   TabBarIOS
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import Theme from '../Utils/Theme';
+import Theme from '../utils/Theme';
 import DesignersComponent from './DesignersComponent';
 import ShotsComponent from './ShotsComponent';
 import TeamsComponent from './TeamsComponent';

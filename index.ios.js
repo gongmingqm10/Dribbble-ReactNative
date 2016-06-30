@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 import Main from './src/components/Main.ios';
-import {Strings, Colors} from './src/Utils/Theme';
+import {Strings, Colors} from './src/utils/Theme';
 
 class Dribbble extends Component {
   render() {

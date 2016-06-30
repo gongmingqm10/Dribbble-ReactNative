@@ -2,111 +2,73 @@ import React, {Component} from 'react';
 
 import {
   View,
-  Text,
   ListView,
   RefreshControl,
-  StyleSheet,
-  ActivityIndicatorIOS
+  StyleSheet
 } from 'react-native';
 
-import API from '../Utils/API';
-import Constants from '../Utils/Constants';
 import ShotRow from './views/ShotRow';
-import {Colors, Strings} from '../Utils/Theme';
+import LoadingFooter from './views/LoadingFooter';
+import {Colors} from '../utils/Theme';
+import {ShotsStore} from '../store/index';
+import Actions from '../actions/Shots';
 
-const LoadingFooter = ({finished}) => {
-  return finished ? (
-    <View style={styles.footerContainer}>
-      <Text style={styles.loadingText}>{Strings.messageDataLoaded}</Text>
-    </View>
-  ) : (
-    <View style={styles.footerContainer}>
-      <ActivityIndicatorIOS size="small" color={Colors.darkPrimary}/>
-      <Text style={styles.loadingText}>{Strings.messageLoading}</Text>
-    </View>
-  )
-};
-LoadingFooter.propTypes = {
-  finished: React.PropTypes.bool.isRequired
-};
 
 class ShotsComponent extends Component {
   constructor(props) {
     super(props);
-    this.dataSource = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2});
-    this.state = {
-      shots: [],
-      page: 0,
-      refreshing: false,
-      loading: false,
-      finished: false,
-      dataSource: this.dataSource.cloneWithRows([])
-    };
-    this.loadShots = this.loadShots.bind(this);
     this.onRefresh = this.onRefresh.bind(this);
-    this.scrollToEnd = this.scrollToEnd.bind(this);
+    this.onReachEnd = this.onReachEnd.bind(this);
   }
 
-  loadShots() {
-    this.setState({loading: true});
-    API.listShots(this.state.page)
-      .then(data => {
-        let newShots = this.state.shots.concat(data);
-        this.setState({
-          shots: newShots,
-          loading: false,
-          refreshing: false,
-          finished: data.length < Constants.shotsPageSize,
-          dataSource: this.dataSource.cloneWithRows(newShots)
-        });
-        console.log('State: => ', this.state.shots.length);
+  componentDidMount() {
+    this.unsubscribe = ShotsStore.subscribe(() => {
+      this.forceUpdate()
+    });
+  }
 
-      })
-      .catch(error => {
-        console.log("List Shots Error", error);
-        this.setState({
-          loading: false,
-          refreshing: false
-        });
-      });
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   onRefresh() {
-    this.setState({
-      refreshing: true,
-      page: 0,
-      finished: false,
-      shots: []
-    });
-    this.loadShots();
+    // This is hacked, cause RefreshControl in iOS don't have enabled props
+    const state = ShotsStore.getState();
+    if (state.loading) {
+      ShotsStore.dispatch(Actions.resetPullRefresh());
+    } else {
+      ShotsStore.dispatch(Actions.refreshShots());
+    }
   }
 
-  scrollToEnd() {
-    if (!this.state.finished) {
-      this.setState({page: this.state.page++});
-      this.loadShots();
+  onReachEnd() {
+    const state = ShotsStore.getState();
+    if (!(state.finished || state.loading || state.error)) {
+      ShotsStore.dispatch(Actions.fetchFromBottom(state.page));
     }
   }
 
   render() {
+    const state = ShotsStore.getState();
     const refreshControl = (
       <RefreshControl
         tintColor={Colors.primary}
-        refreshing={this.state.refreshing}
+        refreshing={state.refreshing}
+        enabled={!this.loading}
         onRefresh={this.onRefresh}
       />
     );
     return (
-      <View style={[styles.container]}>
+      <View style={styles.container}>
         <ListView
           contentContainerStyle={styles.shotList}
-          dataSource={this.state.dataSource}
+          dataSource={state.dataSource}
           refreshControl={refreshControl}
           enableEmptySections={true}
           renderRow={(shot) => <ShotRow shot={shot} />}
           onEndReachedThreshold={100}
-          onEndReached={this.scrollToEnd}
-          renderFooter={() => <LoadingFooter finished={this.state.finished} />}
+          onEndReached={this.onReachEnd}
+          renderFooter={() => <LoadingFooter {...state} />}
         />
       </View>
     )
@@ -121,19 +83,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap'
-  },
-  footerContainer: {
-    width: 250,
-    flexDirection: 'row',
-    padding: 8,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  loadingText: {
-    marginLeft: 6,
-    marginRight: 6,
-    color: Colors.darkPrimary,
-    fontWeight: '500'
   }
 });
 
