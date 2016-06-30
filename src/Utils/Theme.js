@@ -1,19 +1,14 @@
-export default {
+module.exports = {
   Colors: {
     darkPrimary: '#FFA000',
     primary: '#FFC107',
     lightPrimary: '#FFECB3',
     lightGray: '#B6B6B6',
+    lighterGray: '#EEEEEE',
     accent: '#4CAF50',
     fontDark: '#212121',
     fontGray: '#727272',
-  },
-  Dimens: {
-    sSpace: 4,
-    mSpace: 8,
-    lSpace: 12,
-    xlSpace: 16,
-    xxlSpace: 20
+    pageColor: '#F3F3F3'
   },
   Strings: {
     appName: 'Dribbble',
@@ -26,4 +21,4 @@ export default {
     labelTeams: 'Teams',
     labelMy: 'My'
   }
-}
+};
