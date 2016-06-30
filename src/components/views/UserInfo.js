@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     marginLeft: 3,
     fontSize: 12,
     color: Colors.darkPrimary,
-    fontWeight: "600"
+    fontWeight: "500",
+    overflow: 'hidden'
   }
 });
 

@@ -91,6 +91,7 @@ class ShotsComponent extends Component {
   render() {
     const refreshControl = (
       <RefreshControl
+        tintColor={Colors.primary}
         refreshing={this.state.refreshing}
         onRefresh={this.onRefresh}
       />
