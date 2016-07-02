@@ -8,8 +8,8 @@ import {
 
 import {Colors} from '../../utils/Theme';
 
-const UserInfo = ({user}) => (
-  <View style={styles.userContainer}>
+const UserInfo = ({user, style = {}}) => (
+  <View style={[styles.userContainer, ...style]}>
     <Image
       style={styles.avatar}
       source={{uri: user.avatar_url}}
@@ -22,12 +22,13 @@ const styles = StyleSheet.create({
   userContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'flex-start',
     margin: 6
   },
   avatar: {
-    width: 18,
-    height: 18,
-    borderRadius: 9,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     borderColor: 'white',
     borderWidth: 1,
     resizeMode: 'contain'

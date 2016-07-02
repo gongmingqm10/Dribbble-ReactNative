@@ -5,34 +5,26 @@
  */
 
 import React, {Component} from 'react';
-import {
-  AppRegistry,
-  NavigatorIOS,
-  StyleSheet
-} from 'react-native';
+import {AppRegistry} from 'react-native';
+import {Router, Scene} from 'react-native-router-flux';
 
 import Main from './src/components/Main.ios';
-import {Strings, Colors} from './src/utils/Theme';
+import ShotComponent from './src/components/shot/ShotComponent';
+import WebComponent from './src/components/common/WebComponent';
+import {Strings} from './src/utils/Theme';
 
 class Dribbble extends Component {
   render() {
     return (
-      <NavigatorIOS
-        style={styles.container}
-        initialRoute={{
-          component: Main,
-          title: Strings.appName
-        }}
-      />
+      <Router>
+        <Scene key='root'>
+          <Scene key='mainPage' component={Main} title={Strings.appName} initial={true}/>
+          <Scene key='shotPage' component={ShotComponent} title={Strings.titleShotDetail}/>
+          <Scene key='webPage' component={WebComponent} title={Strings.titleWebView}/>
+        </Scene>
+      </Router>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.pageColor
-  }
-});
 
 AppRegistry.registerComponent('Dribbble', () => Dribbble);

@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {
-  TabBarIOS
+  TabBarIOS,
+  StyleSheet
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Theme from '../utils/Theme';
-import DesignersComponent from './DesignersComponent';
-import ShotsComponent from './ShotsComponent';
-import TeamsComponent from './TeamsComponent';
-import MyComponent from './MyComponent';
+import {Colors, Strings} from '../utils/Theme';
+import DesignersComponent from './designers/DesignersComponent';
+import ShotsComponent from './shots/ShotsComponent';
+import TeamsComponent from './teams/TeamsComponent';
+import MyComponent from './my/MyComponent';
 
 const Page = {SHOTS: 'shots', DESIGNERS: 'designers', TEAMS: 'teams', MY: 'my'};
 
@@ -24,11 +25,11 @@ class Main extends Component {
   render() {
     return (
       <TabBarIOS
-        unselectedTintColor={Theme.Colors.lightGray}
-        tintColor={Theme.Colors.primary}
+        unselectedTintColor={Colors.lightGray}
+        tintColor={Colors.primary}
         barTintColor="white">
         <Icon.TabBarItemIOS
-          title={Theme.Strings.labelShots}
+          title={Strings.labelShots}
           iconName="tasks"
           iconSize={24}
           selected={this.state.selectedTab === Page.SHOTS}
@@ -36,7 +37,7 @@ class Main extends Component {
           <ShotsComponent />
         </Icon.TabBarItemIOS>
         <Icon.TabBarItemIOS
-          title={Theme.Strings.labelDesigners}
+          title={Strings.labelDesigners}
           iconName="users"
           iconSize={24}
           selected={this.state.selectedTab === Page.DESIGNERS}
@@ -44,7 +45,7 @@ class Main extends Component {
           <DesignersComponent />
         </Icon.TabBarItemIOS>
         <Icon.TabBarItemIOS
-          title={Theme.Strings.labelTeams}
+          title={Strings.labelTeams}
           iconName="cloud"
           iconSize={24}
           selected={this.state.selectedTab === Page.TEAMS}
@@ -52,7 +53,7 @@ class Main extends Component {
           <TeamsComponent />
         </Icon.TabBarItemIOS>
         <Icon.TabBarItemIOS
-          title={Theme.Strings.labelMy}
+          title={Strings.labelMy}
           iconName="user"
           iconSize={24}
           selected={this.state.selectedTab === Page.MY}

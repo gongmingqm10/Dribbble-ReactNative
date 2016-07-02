@@ -17,7 +17,7 @@ const LoadingFooter = ({finished, error}) => {
   } else if (finished) {
     return (
       <View style={styles.footerContainer}>
-        <Text style={styles.loadingText}>{Strings.messageDataLoaded}</Text>
+        <Text style={[styles.loadingText, {color: Colors.lightGray}]}>{Strings.messageDataLoaded}</Text>
       </View>
     );
   } else {
@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 8,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignSelf: 'center'
   },
   loadingText: {
     marginLeft: 6,

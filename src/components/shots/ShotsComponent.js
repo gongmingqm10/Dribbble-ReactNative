@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
-
 import {
   View,
   ListView,
   RefreshControl,
   StyleSheet
 } from 'react-native';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 
-import ShotRow from './views/ShotRow';
-import LoadingFooter from './views/LoadingFooter';
-import {Colors} from '../utils/Theme';
-import {ShotsStore} from '../store/index';
-import Actions from '../actions/Shots';
+import Shots from '../../reducers/Shots';
+import ShotRow from './ShotRow';
+import LoadingFooter from '../common/LoadingFooter';
+import ShotsAction from '../../actions/Shots';
+import {Colors} from '../../utils/Theme';
 
 
 class ShotsComponent extends Component {
@@ -19,10 +20,11 @@ class ShotsComponent extends Component {
     super(props);
     this.onRefresh = this.onRefresh.bind(this);
     this.onReachEnd = this.onReachEnd.bind(this);
+    this.shotsStore = createStore(Shots, applyMiddleware(thunk));
   }
 
   componentDidMount() {
-    this.unsubscribe = ShotsStore.subscribe(() => {
+    this.unsubscribe = this.shotsStore.subscribe(() => {
       this.forceUpdate()
     });
   }
@@ -33,28 +35,28 @@ class ShotsComponent extends Component {
 
   onRefresh() {
     // This is hacked, cause RefreshControl in iOS don't have enabled props
-    const state = ShotsStore.getState();
+    const state = this.shotsStore.getState();
     if (state.loading) {
-      ShotsStore.dispatch(Actions.resetPullRefresh());
+      this.shotsStore.dispatch(ShotsAction.resetPullRefresh());
     } else {
-      ShotsStore.dispatch(Actions.refreshShots());
+      this.shotsStore.dispatch(ShotsAction.refreshShots());
     }
   }
 
   onReachEnd() {
-    const state = ShotsStore.getState();
+    const state = this.shotsStore.getState();
     if (!(state.finished || state.loading || state.error)) {
-      ShotsStore.dispatch(Actions.fetchFromBottom(state.page));
+      this.shotsStore.dispatch(ShotsAction.fetchFromBottom(state.page));
     }
   }
 
   render() {
-    const state = ShotsStore.getState();
+    const state = this.shotsStore.getState();
     const refreshControl = (
       <RefreshControl
         tintColor={Colors.primary}
         refreshing={state.refreshing}
-        enabled={!this.loading}
+        enabled={!state.loading}
         onRefresh={this.onRefresh}
       />
     );
@@ -77,7 +79,9 @@ class ShotsComponent extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginTop: 50,
+    backgroundColor: Colors.pageColor
   },
   shotList: {
     flexDirection: 'row',

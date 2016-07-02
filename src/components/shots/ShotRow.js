@@ -4,7 +4,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-import UserInfo from './UserInfo';
+import UserInfo from '../common/UserInfo';
 import ShotInfo from './ShotInfo';
 
 const ShotRow = ({shot}) => {
