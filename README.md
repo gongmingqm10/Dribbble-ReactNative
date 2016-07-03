@@ -7,10 +7,12 @@ shot detail page.
 We try to use the modern [redux](https://github.com/reactjs/redux) way to handle the state change.
 
 ## ScreenShots
-
-![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Home.png = 150x)
-![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Shot.png = 150x)
-![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/User.png = 150x)
+<img src="https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Home.png" alt="Home" style="display:inline-block; width: 150px;"/>
+<img src="https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Shot.png" alt="Shot" style="display:inline-block; width: 150px;"/>
+<img src="https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/User.png" alt="User" style="display:inline-block; width: 150px;"/>
+![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Home.png =150x)
+![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Shot.png =150x)
+![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/User.png =150x)
 
 ## Libraries we used
 ```
