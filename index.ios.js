@@ -11,6 +11,7 @@ import {Router, Scene} from 'react-native-router-flux';
 import Main from './src/components/Main.ios';
 import ShotComponent from './src/components/shot/ShotComponent';
 import WebComponent from './src/components/common/WebComponent';
+import UserComponent from './src/components/users/UserComponent';
 import {Strings} from './src/utils/Theme';
 
 class Dribbble extends Component {
@@ -21,6 +22,7 @@ class Dribbble extends Component {
           <Scene key='mainPage' component={Main} title={Strings.appName} initial={true}/>
           <Scene key='shotPage' component={ShotComponent} title={Strings.titleShotDetail}/>
           <Scene key='webPage' component={WebComponent} title={Strings.titleWebView}/>
+          <Scene key='userPage' component={UserComponent} title={Strings.titleUserDetail}/>
         </Scene>
       </Router>
     );

@@ -21,7 +21,14 @@ class CommentRow extends React.Component {
     );
     return (
       <View style={styles.container}>
-        <UserInfo user={comment.user} styles={styles.userInfo} />
+        <UserInfo
+          user={comment.user}
+          styles={styles.userInfo}
+          onItemClick={() => {
+            Actions.pop();
+            Actions.userPage({user: comment.user});
+          }}
+        />
         <HTMLView
           value={comment.body}
           onLinkPress={(url) => Actions.webPage({url: url})}

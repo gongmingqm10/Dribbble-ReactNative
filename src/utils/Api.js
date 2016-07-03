@@ -9,11 +9,15 @@ var requestOptions = {
 };
 module.exports = {
   listShots: (page) => {
-    const url = BASE_URL + "/v1/shots?per_page=" + Constants.shotsPageSize + "&page=" + page;
+    const url = `${BASE_URL}/v1/shots?per_page=${Constants.shotsPageSize}&page=${page}`;
     return fetch(url, requestOptions).then((res) => res.json());
   },
   listComments: (shotId, page) => {
-    const url = BASE_URL + "/v1/shots/" + shotId + "/comments?per_page=" + Constants.shotsPageSize + "&page=" + page;
+    const url = `${BASE_URL}/v1/shots/${shotId}/comments?per_page=${Constants.shotsPageSize}&page=${page}`;
+    return fetch(url, requestOptions).then((res) => res.json());
+  },
+  listUserShots: (userId, page) => {
+    const url = `${BASE_URL}/v1/users/${userId}/shots?per_page=${Constants.shotsPageSize}&page=${page}`;
     return fetch(url, requestOptions).then((res) => res.json());
   }
 };

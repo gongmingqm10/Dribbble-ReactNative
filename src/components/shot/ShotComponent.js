@@ -27,6 +27,7 @@ class ShotComponent extends React.Component {
     this.unsubscribe = this.commentsStore.subscribe(() => {
       this.forceUpdate()
     });
+    // Auto call the reach end to make first loading happen. This is tricky and caused by Navigator!!
     this.onReachEnd();
   }
 

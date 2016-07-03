@@ -3,7 +3,8 @@ import {
   View,
   Text,
   ActivityIndicatorIOS,
-  StyleSheet
+  StyleSheet,
+  Dimensions
 } from 'react-native';
 import {Strings, Colors} from '../../utils/Theme';
 
@@ -15,11 +16,7 @@ const LoadingFooter = ({finished, error}) => {
       </View>
     );
   } else if (finished) {
-    return (
-      <View style={styles.footerContainer}>
-        <Text style={[styles.loadingText, {color: Colors.lightGray}]}>{Strings.messageDataLoaded}</Text>
-      </View>
-    );
+    return <View />;
   } else {
     return (
       <View style={styles.footerContainer}>
@@ -35,7 +32,7 @@ LoadingFooter.propTypes = {
 
 const styles = StyleSheet.create({
   footerContainer: {
-    width: 250,
+    width: Dimensions.get('window').width - 80,
     flexDirection: 'row',
     padding: 8,
     alignItems: 'center',

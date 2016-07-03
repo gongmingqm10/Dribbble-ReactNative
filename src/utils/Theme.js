@@ -20,6 +20,7 @@ module.exports = {
     
     titleShotDetail: 'Shot Detail',
     titleWebView: 'Web Detail',
+    titleUserDetail: 'User Detail',
     labelShots: 'Shots',
     labelDesigners: 'Designers',
     labelTeams: 'Teams',

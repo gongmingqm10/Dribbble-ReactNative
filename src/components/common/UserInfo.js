@@ -3,19 +3,24 @@ import {
   View,
   Image,
   Text,
+  TouchableOpacity,
   StyleSheet
 } from 'react-native';
 
 import {Colors} from '../../utils/Theme';
 
-const UserInfo = ({user, style = {}}) => (
-  <View style={[styles.userContainer, ...style]}>
-    <Image
-      style={styles.avatar}
-      source={{uri: user.avatar_url}}
-    />
-    <Text style={styles.username}>{user.name}</Text>
-  </View>
+const UserInfo = ({user, style = {}, onItemClick}) => (
+  <TouchableOpacity
+    onPress={onItemClick}
+    activeOpacity={0.2}>
+    <View style={[styles.userContainer, ...style]}>
+      <Image
+        style={styles.avatar}
+        source={{uri: user.avatar_url}}
+      />
+      <Text style={styles.username}>{user.name}</Text>
+    </View>  
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({

@@ -5,13 +5,23 @@ import {
 } from 'react-native';
 
 import UserInfo from '../common/UserInfo';
-import ShotInfo from './ShotInfo';
+import ShotInfo from '../common/ShotInfo';
+import {Actions} from 'react-native-router-flux';
 
 const ShotRow = ({shot}) => {
+  const openDetailPage = () => {
+    Actions.shotPage({shot: shot});
+  };
+
   return (
     <View style={styles.shotContainer}>
-      <ShotInfo shot={shot}/>
-      <UserInfo user={shot.user}/>
+      <ShotInfo shot={shot} onItemClick={openDetailPage}/>
+      <UserInfo 
+        user={shot.user} 
+        onItemClick={() => {
+          Actions.userPage({user: shot.user});
+        }}
+      />
     </View>
   )
 };
