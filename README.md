@@ -8,9 +8,9 @@ We try to use the modern [redux](https://github.com/reactjs/redux) way to handle
 
 ## ScreenShots
 
- ![Home](https://raw.githubusercontent.com/gongmingqm10/ZhihuDaily/master/cuts/Shots.png)		  ![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Home.png)
- ![Shot](https://raw.githubusercontent.com/gongmingqm10/ZhihuDaily/master/cuts/Shots.png)		  ![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Shot.png)
- ![User](https://raw.githubusercontent.com/gongmingqm10/ZhihuDaily/master/cuts/Shots.png)		  ![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/User.png)
+![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Home.png = 150x)
+![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Shot.png = 150x)
+![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/User.png = 150x)
 
 ## Libraries we used
 ```
