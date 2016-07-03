@@ -12,9 +12,6 @@ We try to use the modern [redux](https://github.com/reactjs/redux) way to handle
  ![Shot](https://raw.githubusercontent.com/gongmingqm10/ZhihuDaily/master/cuts/Shots.png)		  ![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/Shot.png)
  ![User](https://raw.githubusercontent.com/gongmingqm10/ZhihuDaily/master/cuts/Shots.png)		  ![Shots](https://raw.githubusercontent.com/gongmingqm10/Dribbble-ReactNative/master/arts/User.png)
 
-
-
-
 ## Libraries we used
 ```
   "dependencies": {
