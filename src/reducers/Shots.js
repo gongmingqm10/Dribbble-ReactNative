@@ -20,7 +20,7 @@ const shots = (state = initialState, action) => {
       return Object.assign(
         {},
         state,
-        {page: state.page + 1, loading: true}
+        {loading: true}
       );
     case ShotsTypes.PULL_TO_REFRESH:
       return {
@@ -29,7 +29,6 @@ const shots = (state = initialState, action) => {
         refreshing: true,
         loading: true,
         finished: false,
-        error: undefined,
         dataSource: state.dataSource
       };
     case ShotsTypes.REQUEST_SUCCESS:
@@ -38,7 +37,7 @@ const shots = (state = initialState, action) => {
         shots: newShots,
         loading: false,
         refreshing: false,
-        error: undefined,
+        page: state.page + 1,
         finished: action.data.length < Constants.shotsPageSize,
         dataSource: dataSource.cloneWithRows(newShots)
       };

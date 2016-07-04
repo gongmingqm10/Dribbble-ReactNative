@@ -12,7 +12,7 @@ import Shots from '../../reducers/Shots';
 import ShotRow from './ShotRow';
 import LoadingFooter from '../common/LoadingFooter';
 import ShotsAction from '../../actions/Shots';
-import {Colors} from '../../utils/Theme';
+import {Dimens, Colors} from '../../utils/Theme';
 
 
 class ShotsComponent extends Component {
@@ -61,18 +61,17 @@ class ShotsComponent extends Component {
       />
     );
     return (
-      <View style={styles.container}>
-        <ListView
-          contentContainerStyle={styles.shotList}
-          dataSource={state.dataSource}
-          refreshControl={refreshControl}
-          enableEmptySections={true}
-          renderRow={(shot) => <ShotRow shot={shot} />}
-          onEndReachedThreshold={100}
-          onEndReached={this.onReachEnd}
-          renderFooter={() => <LoadingFooter {...state} />}
-        />
-      </View>
+      <ListView
+        style={styles.container}
+        contentContainerStyle={styles.shotList}
+        dataSource={state.dataSource}
+        refreshControl={refreshControl}
+        enableEmptySections={true}
+        renderRow={(shot) => <ShotRow shot={shot} />}
+        onEndReachedThreshold={100}
+        onEndReached={this.onReachEnd}
+        renderFooter={() => <LoadingFooter {...state} />}
+      />
     )
   }
 }
@@ -80,7 +79,7 @@ class ShotsComponent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
+    marginTop: Dimens.iOSTop,
     backgroundColor: Colors.pageColor
   },
   shotList: {

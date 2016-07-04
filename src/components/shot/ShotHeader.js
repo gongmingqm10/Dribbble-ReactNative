@@ -73,7 +73,8 @@ const htmlStyles = StyleSheet.create({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Colors.pageColor
   },
   userContainer: {
     padding: 12,
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   },
 
   shotImage: {
-    resizeMode: 'cover',
+    resizeMode: 'contain',
     height: 300
   },
   countView: {

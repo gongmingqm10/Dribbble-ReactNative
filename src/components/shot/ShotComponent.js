@@ -11,7 +11,7 @@ import Comments from '../../reducers/Comments'
 import ShotHeader from './ShotHeader';
 import CommentRow from './CommentRow';
 import LoadingFooter from '../common/LoadingFooter';
-import {Colors} from '../../utils/Theme';
+import {Dimens, Colors} from '../../utils/Theme';
 import CommentsAction from '../../actions/Comments';
 
 class ShotComponent extends React.Component {
@@ -63,19 +63,18 @@ class ShotComponent extends React.Component {
       />
     );
     return (
-      <View style={styles.container}>
-        <ListView
-          contentContainerStyle={styles.commentsList}
-          dataSource={state.dataSource}
-          enableEmptySections={true}
-          renderRow={(comment) => <CommentRow comment={comment} />}
-          renderHeader={() => <ShotHeader shot={this.shot} />}
-          onEndReachedThreshold={300}
-          onEndReached={this.onReachEnd}
-          renderFooter={() => <LoadingFooter {...state} />}
-          refreshControl={refreshControl}
-        />
-      </View>
+      <ListView
+        style={styles.container}
+        contentContainerStyle={styles.commentsList}
+        dataSource={state.dataSource}
+        enableEmptySections={true}
+        renderRow={(comment) => <CommentRow comment={comment} />}
+        renderHeader={() => <ShotHeader shot={this.shot} />}
+        onEndReachedThreshold={300}
+        onEndReached={this.onReachEnd}
+        renderFooter={() => <LoadingFooter {...state} />}
+        refreshControl={refreshControl}
+      />
     )
   }
 }
@@ -83,7 +82,7 @@ class ShotComponent extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 65,
+    marginTop: Dimens.iOSTop,
     backgroundColor: Colors.pageColor
   },
   commentsList: {

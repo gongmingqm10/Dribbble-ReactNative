@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-
 import {
   View,
   Text,
   StyleSheet
 } from 'react-native';
+import {Dimens} from '../../utils/Theme';
 
 class TeamsComponent extends Component {
   render() {
@@ -18,6 +18,7 @@ class TeamsComponent extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: Dimens.iOSTop,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'

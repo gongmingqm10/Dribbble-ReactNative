@@ -30,5 +30,8 @@ module.exports = {
     labelLiked: 'liked',
     messageLoading: 'Loading...',
     messageDataLoaded: 'All data loaded'
+  },
+  Dimens: {
+    iOSTop: 64
   }
 };

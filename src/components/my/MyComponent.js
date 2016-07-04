@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
+import {Dimens} from '../../utils/Theme';
 
 class MyComponent extends Component {
   render() {
@@ -17,6 +18,7 @@ class MyComponent extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: Dimens.iOSTop,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'

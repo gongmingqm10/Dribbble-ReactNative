@@ -27,7 +27,7 @@ Both Android and iOS should be supported
 
 ## TODO
 
-1. [iOS] Fix the Navigator padding top issues.
+1. ~~[iOS] Fix the Navigator padding top issues.~~
 2. [Android] Add the DrawerMenu View to contains Components
 3. [Android] Shots page compatibility
 4. [Android] User page compatibility

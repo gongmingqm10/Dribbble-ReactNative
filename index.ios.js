@@ -11,7 +11,7 @@ import {Router, Scene} from 'react-native-router-flux';
 import Main from './src/components/Main.ios';
 import ShotComponent from './src/components/shot/ShotComponent';
 import WebComponent from './src/components/common/WebComponent';
-import UserComponent from './src/components/users/UserComponent';
+import UserComponent from './src/components/user/UserComponent';
 import {Strings} from './src/utils/Theme';
 
 class Dribbble extends Component {

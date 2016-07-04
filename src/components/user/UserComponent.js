@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import {Colors} from '../../utils/Theme';
+import {Colors, Dimens} from '../../utils/Theme';
 import Shots from '../../reducers/Shots';
 import UserShotsAction from '../../actions/UserShots';
 import UserHeader from './UserHeader';
@@ -96,7 +96,7 @@ class UserComponent extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 65 ,
+    marginTop: Dimens.iOSTop,
     backgroundColor: Colors.pageColor
   },
   shotList: {

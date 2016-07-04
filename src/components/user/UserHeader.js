@@ -36,9 +36,10 @@ const htmlStyles = StyleSheet.create({
 });
 const styles = StyleSheet.create({
   container: {
-    margin: 12,
+    padding: 12,
     alignItems: 'center',
-    width: Dimensions.get('window').width - 80
+    backgroundColor: Colors.pageColor,
+    width: Dimensions.get('window').width
   },
   shareContainer: {
     flexDirection: 'row',

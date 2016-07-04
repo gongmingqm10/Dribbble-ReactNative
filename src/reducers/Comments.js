@@ -20,7 +20,7 @@ const comments = (state = initialState, action) => {
       return Object.assign(
         {},
         state,
-        {page: state.page + 1, loading: true}
+        {loading: true}
       );
     case CommentsTypes.PULL_TO_REFRESH:
       return {
@@ -29,7 +29,6 @@ const comments = (state = initialState, action) => {
         refreshing: true,
         loading: true,
         finished: false,
-        error: undefined,
         dataSource: state.dataSource
       };
     case CommentsTypes.REQUEST_SUCCESS:
@@ -38,7 +37,7 @@ const comments = (state = initialState, action) => {
         comments: newComments,
         loading: false,
         refreshing: false,
-        error: undefined,
+        page: state.page + 1,
         finished: action.data.length < Constants.commentsPageSize,
         dataSource: dataSource.cloneWithRows(newComments)
       };
