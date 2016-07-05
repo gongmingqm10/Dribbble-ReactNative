@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
   ListView,
+  Platform,
   RefreshControl
 } from 'react-native';
 import {createStore, applyMiddleware} from 'redux';
@@ -82,7 +83,7 @@ class ShotComponent extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Dimens.iOSTop,
+    marginTop: Platform.OS === 'ios' ? Dimens.iOSTop : Dimens.androidTabbar,
     backgroundColor: Colors.pageColor
   },
   commentsList: {

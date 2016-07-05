@@ -4,49 +4,29 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, {Component} from 'react';
+import {AppRegistry} from 'react-native';
+import {Router, Scene} from 'react-native-router-flux';
+
+import Main from './src/components/Main.android';
+import ShotComponent from './src/components/shot/ShotComponent';
+import WebComponent from './src/components/common/WebComponent';
+import UserComponent from './src/components/user/UserComponent';
+import {Strings} from './src/utils/Theme';
 
 class Dribbble extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Router>
+        <Scene key='root'>
+          <Scene key='mainPage' component={Main} title={Strings.appName} hideNavBar={true} initial={true}/>
+          <Scene key='shotPage' component={ShotComponent} hideNavBar={false} title={Strings.titleShotDetail}/>
+          <Scene key='webPage' component={WebComponent} hideNavBar={false} title={Strings.titleWebView}/>
+          <Scene key='userPage' component={UserComponent} hideNavBar={false} title={Strings.titleUserDetail}/>
+        </Scene>
+      </Router>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('Dribbble', () => Dribbble);

@@ -6,7 +6,7 @@ const dataSource = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 
 
 const initialState = {
   comments: [],
-  page: 0,
+  page: -1,
   refreshing: false,
   loading: false,
   finished: false,

@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
   RefreshControl,
+  Platform,
   ListView
 } from 'react-native';
 import {createStore, applyMiddleware} from 'redux';
@@ -96,7 +97,7 @@ class UserComponent extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Dimens.iOSTop,
+    marginTop: Platform.OS === 'ios' ? Dimens.iOSTop : 0,
     backgroundColor: Colors.pageColor
   },
   shotList: {

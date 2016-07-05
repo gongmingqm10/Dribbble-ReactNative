@@ -3,17 +3,16 @@ import {
   View,
   ListView,
   RefreshControl,
+  Platform,
   StyleSheet
 } from 'react-native';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-
 import Shots from '../../reducers/Shots';
 import ShotRow from './ShotRow';
 import LoadingFooter from '../common/LoadingFooter';
 import ShotsAction from '../../actions/Shots';
 import {Dimens, Colors} from '../../utils/Theme';
-
 
 class ShotsComponent extends Component {
   constructor(props) {
@@ -27,6 +26,7 @@ class ShotsComponent extends Component {
     this.unsubscribe = this.shotsStore.subscribe(() => {
       this.forceUpdate()
     });
+    this.onReachEnd();
   }
 
   componentWillUnmount() {
@@ -79,7 +79,7 @@ class ShotsComponent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Dimens.iOSTop,
+    marginTop: Platform.OS === 'ios' ? Dimens.iOSTop : 0,
     backgroundColor: Colors.pageColor
   },
   shotList: {

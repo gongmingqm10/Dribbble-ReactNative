@@ -32,6 +32,7 @@ module.exports = {
     messageDataLoaded: 'All data loaded'
   },
   Dimens: {
-    iOSTop: 64
+    iOSTop: 64,
+    androidTabbar: 56
   }
 };

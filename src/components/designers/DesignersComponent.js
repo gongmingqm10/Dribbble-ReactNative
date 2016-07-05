@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  Platform
 } from 'react-native';
 
 import {Dimens} from '../../utils/Theme';
@@ -20,7 +21,7 @@ class DesignersComponent extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Dimens.iOSTop,
+    marginTop: Platform.OS === 'ios' ? Dimens.iOSTop : 0,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
