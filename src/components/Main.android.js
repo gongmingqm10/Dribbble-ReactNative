@@ -70,7 +70,7 @@ class Main extends React.Component {
     return (
       <DrawerLayoutAndroid
         ref={(drawer) => this.drawer = drawer}
-        drawerWidth={300}
+        drawerWidth={240}
         onDrawerOpen={() => this.setState({drawerOpen: true})}
         onDrawerClose={() => this.setState({drawerOpen: false})}
         drawerPosition={DrawerLayoutAndroid.positions.Left}
@@ -81,7 +81,8 @@ class Main extends React.Component {
             title={this.state.page}
             navIconName="bars"
             iconColor="white"
-            iconSize={32}
+            titleColor="white"
+            iconSize={28}
             onIconClicked={this.toggleDrawer}
           />
           {this.getCurrentComponent()}

@@ -12,8 +12,9 @@ import Comments from '../../reducers/Comments'
 import ShotHeader from './ShotHeader';
 import CommentRow from './CommentRow';
 import LoadingFooter from '../common/LoadingFooter';
-import {Dimens, Colors} from '../../utils/Theme';
+import {Dimens, Colors, Strings} from '../../utils/Theme';
 import CommentsAction from '../../actions/Comments';
+import ToolbarView from '../common/ToolbarView';
 
 class ShotComponent extends React.Component {
   constructor(props) {
@@ -64,18 +65,20 @@ class ShotComponent extends React.Component {
       />
     );
     return (
-      <ListView
-        style={styles.container}
-        contentContainerStyle={styles.commentsList}
-        dataSource={state.dataSource}
-        enableEmptySections={true}
-        renderRow={(comment) => <CommentRow comment={comment} />}
-        renderHeader={() => <ShotHeader shot={this.shot} />}
-        onEndReachedThreshold={300}
-        onEndReached={this.onReachEnd}
-        renderFooter={() => <LoadingFooter {...state} />}
-        refreshControl={refreshControl}
-      />
+      <View style={styles.container}>
+        <ToolbarView title={Strings.titleShotDetail}/>
+        <ListView
+          contentContainerStyle={styles.commentsList}
+          dataSource={state.dataSource}
+          enableEmptySections={true}
+          renderRow={(comment) => <CommentRow comment={comment} />}
+          renderHeader={() => <ShotHeader shot={this.shot} />}
+          onEndReachedThreshold={300}
+          onEndReached={this.onReachEnd}
+          renderFooter={() => <LoadingFooter {...state} />}
+          refreshControl={refreshControl}
+        />
+      </View>
     )
   }
 }
@@ -83,7 +86,7 @@ class ShotComponent extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Platform.OS === 'ios' ? Dimens.iOSTop : Dimens.androidTabbar,
+    marginTop: Platform.OS === 'ios' ? Dimens.iOSTop : 0,
     backgroundColor: Colors.pageColor
   },
   commentsList: {

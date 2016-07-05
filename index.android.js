@@ -20,7 +20,7 @@ class Dribbble extends Component {
       <Router>
         <Scene key='root'>
           <Scene key='mainPage' component={Main} title={Strings.appName} hideNavBar={true} initial={true}/>
-          <Scene key='shotPage' component={ShotComponent} hideNavBar={false} title={Strings.titleShotDetail}/>
+          <Scene key='shotPage' component={ShotComponent} hideNavBar={true} title={Strings.titleShotDetail}/>
           <Scene key='webPage' component={WebComponent} hideNavBar={false} title={Strings.titleWebView}/>
           <Scene key='userPage' component={UserComponent} hideNavBar={false} title={Strings.titleUserDetail}/>
         </Scene>

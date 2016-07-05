@@ -45,12 +45,13 @@ Both Android and iOS should be supported
 ## TODO
 
 1. ~~[iOS] Fix the Navigator padding top issues.~~
-2. [Android] Add the DrawerMenu View to contains Components
-3. [Android] Shots page compatibility
-4. [Android] User page compatibility
-5. [Android] Shot detail page compatibility
-6. [App] Add initial tests especially for reducers test
-7. [CI] Add auto deploy script to assemble Android & iOS package
+2. ~~[Android] Add the DrawerMenu View to contains Components~~
+3. ~~[Android] Shots page compatibility~~
+4. ~~[Android] User page compatibility~~
+5. ~~[Android] Shot detail page compatibility~~
+6. [Android] Rounded Image is not working
+7. [App] Add initial tests especially for reducers test
+8. [CI] Add auto deploy script to assemble Android & iOS package
 
 ## LICENSE
 ```

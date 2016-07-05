@@ -8,13 +8,14 @@ import {
 } from 'react-native';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import {Colors, Dimens} from '../../utils/Theme';
+import {Colors, Dimens, Strings} from '../../utils/Theme';
 import Shots from '../../reducers/Shots';
 import UserShotsAction from '../../actions/UserShots';
 import UserHeader from './UserHeader';
 import LoadingFooter from '../common/LoadingFooter';
 import ShotInfo from '../common/ShotInfo';
 import {Actions} from 'react-native-router-flux';
+import ToolbarView from '../common/ToolbarView';
 
 class UserComponent extends React.Component {
   constructor(props) {
@@ -70,6 +71,7 @@ class UserComponent extends React.Component {
     );
     return (
       <View style={styles.container}>
+        <ToolbarView title={Strings.titleUserDetail} />
         <ListView
           contentContainerStyle={styles.shotList}
           dataSource={state.dataSource}
