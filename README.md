@@ -21,6 +21,23 @@ We try to use the modern [redux](https://github.com/reactjs/redux) way to handle
     "redux-thunk": "^2.1.0"
   }
 ```
+
+## How to run
+
+Basically this should be working on both Android & iOS platforms. Make sure
+you have install XCode correctly when you want to run iOS version. Android version
+is still be continuous migrating, but should works fine soon.
+
+Launch the iOS version:
+
+```
+$: cd Dribbble-ReactNative
+$: npm install
+$: react-native run-ios
+```
+
+If you want to launch Android version: please run `react-native run-android`
+
 ## Platforms we need to support
 
 Both Android and iOS should be supported
