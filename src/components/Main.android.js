@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Image,
   DrawerLayoutAndroid
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -11,7 +12,7 @@ import DesignersComponent from './designers/DesignersComponent';
 import ShotsComponent from './shots/ShotsComponent';
 import TeamsComponent from './teams/TeamsComponent';
 import MyComponent from './my/MyComponent';
-import Separator from './common/Separator';
+import DrawerMenuItem from './common/DrawerMenuItem';
 
 const Page = {SHOTS: 'Shots', DESIGNERS: 'Designers', TEAMS: 'Teams', MY: 'My'};
 
@@ -27,7 +28,7 @@ class Main extends React.Component {
   }
 
   getCurrentComponent() {
-    switch(this.state.page) {
+    switch (this.state.page) {
       case Page.SHOTS:
         return <ShotsComponent />;
       case Page.DESIGNERS:
@@ -58,13 +59,30 @@ class Main extends React.Component {
   render() {
     const navigationView = (
       <View style={styles.navigationView}>
-        <Text style={styles.menuText} onPress={() => this.updatePageState(Page.SHOTS)}>{Strings.labelShots}</Text>
-        <Separator />
-        <Text style={styles.menuText} onPress={() => this.updatePageState(Page.DESIGNERS)}>{Strings.labelDesigners}</Text>
-        <Separator />
-        <Text style={styles.menuText} onPress={() => this.updatePageState(Page.TEAMS)}>{Strings.labelTeams}</Text>
-        <Separator />
-        <Text style={styles.menuText} onPress={() => this.updatePageState(Page.MY)}>{Strings.labelMy}</Text>
+        <View style={styles.headerView}>
+          <Image style={styles.headerAvatar} source={require('../../images/default_avatar.jpg')}/>
+          <Text style={styles.headerUser}>Ming Gong</Text>
+        </View>
+        <DrawerMenuItem
+          title={Strings.labelShots}
+          iconName="tasks"
+          onItemClick={() => this.updatePageState(Page.SHOTS)}
+        />
+        <DrawerMenuItem
+          title={Strings.labelDesigners}
+          iconName="users"
+          onItemClick={() => this.updatePageState(Page.DESIGNERS)}
+        />
+        <DrawerMenuItem
+          title={Strings.labelTeams}
+          iconName="cloud"
+          onItemClick={() => this.updatePageState(Page.TEAMS)}
+        />
+        <DrawerMenuItem
+          title={Strings.labelMy}
+          iconName="user"
+          onItemClick={() => this.updatePageState(Page.MY)}
+        />
       </View>
     );
     return (
@@ -95,22 +113,35 @@ class Main extends React.Component {
 const styles = StyleSheet.create({
   navigationView: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    alignItems: 'stretch'
   },
-  menuText: {
-    fontSize: 14,
-    color: Colors.fontDark,
-    paddingLeft: 12,
-    paddingRight: 12,
-    paddingTop: 8,
-    paddingBottom: 8,
-  },
+
   rootContainer: {
     flex: 1
   },
   toolbar: {
     backgroundColor: Colors.primary,
-    height: Dimens.androidTabbar
+    height: Dimens.androidTabbar,
+    elevation: 8,
+    shadowColor: Colors.lightGray,
+    shadowRadius: 2,
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 1, height: 1}
+  },
+  headerView: {
+    padding: 24,
+    backgroundColor: Colors.primary,
+    alignItems: 'center'
+  },
+  headerAvatar: {
+    width: 64,
+    height: 64,
+    borderRadius: 32
+  },
+  headerUser: {
+    fontSize: 18,
+    color: 'white'
   }
 });
 

@@ -27,7 +27,7 @@ class ShotHeader extends React.Component {
             <Text style={styles.userPlainText}>by</Text>
             <Text style={styles.username}>{this.shot.user.name}</Text>
             <Text style={styles.userPlainText}>on</Text>
-            <Text style={styles.createdTime}>{this.shot.created_at}</Text>
+            <Text style={styles.createdTime}>{new Date(this.shot.created_at).toDateString()}</Text>
           </View>
         </View>
       </View>

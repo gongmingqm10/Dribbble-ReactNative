@@ -36,13 +36,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderColor: 'white',
     borderWidth: 1,
-    resizeMode: 'contain'
+    resizeMode: 'cover'
   },
   username: {
     marginLeft: 3,
     fontSize: 12,
     color: Colors.darkPrimary,
-    fontWeight: "500",
+    fontWeight: "400",
     overflow: 'hidden'
   }
 });

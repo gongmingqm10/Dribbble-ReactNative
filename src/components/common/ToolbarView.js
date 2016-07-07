@@ -24,7 +24,12 @@ const ToolbarView = ({title}) => {
 const styles = StyleSheet.create({
   toolbar: {
     backgroundColor: Colors.primary,
-    height: Dimens.androidTabbar
+    height: Dimens.androidTabbar,
+    elevation: 8,
+    shadowColor: Colors.lightGray,
+    shadowRadius: 2,
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 1, height: 1}
   }
 });
 
