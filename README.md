@@ -32,7 +32,7 @@ Launch the iOS version:
 
 ```
 $: cd Dribbble-ReactNative
-$: npm install
+$: npm install & npm start
 $: react-native run-ios
 ```
 
