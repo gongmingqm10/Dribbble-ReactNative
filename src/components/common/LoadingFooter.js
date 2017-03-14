@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View,
   Text,
-  ActivityIndicatorIOS,
+  ActivityIndicator,
   StyleSheet,
   Dimensions
 } from 'react-native';
@@ -20,7 +20,7 @@ const LoadingFooter = ({finished, error}) => {
   } else {
     return (
       <View style={styles.footerContainer}>
-        <ActivityIndicatorIOS size="small" color={Colors.darkPrimary}/>
+        <ActivityIndicator size="small" color={Colors.darkPrimary}/>
         <Text style={styles.loadingText}>{Strings.messageLoading}</Text>
       </View>
     );

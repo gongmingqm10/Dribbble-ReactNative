@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, StyleSheet} from 'react-native';
+import {View, Platform, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Colors, Dimens} from '../../utils/Theme';
 import {Actions} from 'react-native-router-flux';
